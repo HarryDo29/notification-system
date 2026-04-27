@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/notication-system/src",
+  "compilerOptions": {
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/notication-system/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/notication-system",
+  "projects": {
+    "apigateway": {
+      "type": "application",
+      "root": "apps/apigateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/apigateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/apigateway/tsconfig.app.json"
+      }
+    },
+    "notication-system": {
+      "type": "application",
+      "root": "apps/notication-system",
+      "entryFile": "main",
+      "sourceRoot": "apps/notication-system/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/notication-system/tsconfig.app.json"
+      }
+    }
+  }
+}
