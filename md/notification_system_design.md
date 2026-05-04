@@ -1,5 +1,7 @@
 # Phân tích & Thiết kế Kiến trúc: Notification & Event Processing Platform
 
+"Xây dựng hệ thống xử lý sự kiện và gửi thông báo đa kênh (email, SMS, push notification) cho các ứng dụng thương mại điện tử. Hệ thống hỗ trợ retry, distributed job processing và đảm bảo độ tin cậy khi gửi thông báo số lượng lớn."
+
 ## 1. Tổng quan hệ thống (Overview)
 
 Nền tảng xử lý sự kiện và gửi thông báo đa kênh (Email, SMS, Push Notification, In-App/Real-time) dành cho các hệ thống thương mại điện tử (E-commerce). Hệ thống đóng vai trò như một dịch vụ trung tâm (centralized service) để nhận các sự kiện từ nhiều microservices khác (Order, Authentication, Promotion, v.v.), sau đó định tuyến, xây dựng nội dung (template rendering) và phân phối thông báo đến người dùng thông qua các nhà cung cấp bên thứ ba (SendGrid, Twilio, Firebase, v.v.) cũng như qua hệ thống WebSocket/SSE thời gian thực nội bộ.

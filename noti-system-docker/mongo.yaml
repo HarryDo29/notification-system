@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: saga-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: saga_user
+      MONGO_INITDB_ROOT_PASSWORD: saga_password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    # networks:
+    #   - saga-network
+
+volumes:
+  mongo_data: 
+    driver: local
+
+# networks:
+#   saga-network:
+#     driver: bridge

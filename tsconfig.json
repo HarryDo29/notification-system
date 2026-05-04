@@ -22,5 +22,10 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {}
-  }
+  },
+  "include": [
+    "apps/**/*.ts",
+    ".eslintrc.js",
+    ".eslintignore"
+  ]
 }
