@@ -6,7 +6,7 @@ import { MailModule } from './mail/mail.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TemplateModule } from './template/template.module';
 import { CacheModule } from '@nestjs/cache-manager/dist/cache.module.js';
-import type { CacheModuleAsyncOptions } from '@nestjs/cache-manager/dist/interfaces/cache-module.interface.js';
+import type { CacheModuleAsyncOptions } from '@nestjs/cache-manager';
 import { JobTemplateModule } from './job-emplate/job-template.module';
 
 /**
