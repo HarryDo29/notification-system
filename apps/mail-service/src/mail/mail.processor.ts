@@ -5,7 +5,7 @@ import { MailService } from './mail.service';
 import { MailQueue } from '../queue/enum/mail-queue.enum';
 import { SendSingleMailDto } from './dto/send-mail.dto';
 
-@Processor(MailQueue.SINGLE)
+@Processor(MailQueue.SINGLE, { concurrency: 5 })
 export class MailSingleProcessor extends WorkerHost {
   private readonly logger = new Logger(MailSingleProcessor.name);
 
@@ -19,7 +19,7 @@ export class MailSingleProcessor extends WorkerHost {
   }
 }
 
-@Processor(MailQueue.BULK)
+@Processor(MailQueue.BULK, { concurrency: 2, limiter: { max: 10, duration: 1000 } })
 export class MailBulkProcessor extends WorkerHost {
   private readonly logger = new Logger(MailBulkProcessor.name);
 
