@@ -36,7 +36,7 @@ export class TemplateService {
     const template: EmailTemplate | null = await this.templateRepository.findOne({
       where: { id: template_id },
       select: ['id', 'template_type', 'version', 'subject', 'body', 'engine'],
-      relations: ['template_variable'],
+      relations: ['template_variables'],
     });
     return template;
   }

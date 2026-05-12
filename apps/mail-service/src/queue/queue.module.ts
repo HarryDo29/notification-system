@@ -25,6 +25,7 @@ import { JobTemplateModule } from '../job-emplate/job-template.module';
         connection: {
           host: config.get<string>('REDIS_HOST', 'localhost'),
           port: config.get<number>('REDIS_PORT', 6379),
+          db: config.get<number>('REDIS_DB', 1),
         },
         defaultJobOptions: {
           attempts: 3,

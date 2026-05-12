@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { QueueModule } from './queue/queue.module';
-import { SendGridModule } from './sendgrid/sendgrid.module';
+import { MailProviderModule } from './providers/mail-provider.module';
 import { MailModule } from './mail/mail.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TemplateModule } from './template/template.module';
@@ -47,7 +47,7 @@ const cacheModuleAsync: CacheModuleAsyncOptions = {
     CacheModule.registerAsync(cacheModuleAsync),
     TemplateModule, // template module
     QueueModule, // BullMQ + Redis (global)
-    SendGridModule, // ← swap this line to change provider
+    MailProviderModule, // reads MAIL_PROVIDER_NAME from .env
     MailModule, // ← This handles the business logic
     JobTemplateModule, // job template module
   ],
